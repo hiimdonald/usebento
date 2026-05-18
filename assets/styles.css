@@ -687,6 +687,9 @@ section .lede {
 .article li { margin-bottom: 6px; }
 .article a { color: var(--forest); border-bottom: 1px solid var(--forest-line); }
 .article a:hover { border-bottom-color: var(--forest); }
+.article .btn { border-bottom: none; }
+.article .btn-primary { color: var(--rice); }
+.article .btn-ghost { color: var(--ink); }
 .article hr {
   border: 0; height: 1px; background: var(--line); margin: 56px 0;
 }
