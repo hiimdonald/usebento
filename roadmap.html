@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Roadmap — Bento</title>
+<meta name="description" content="What's shipped, what's coming, and what's further out for Bento on iOS." />
+<meta name="theme-color" content="#EFE7D6" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="assets/styles.css" />
+<style>
+.rm-track {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 0 48px;
+}
+.rm-track::before {
+  content: '';
+  position: absolute;
+  left: 20px;
+  top: 8px; bottom: 8px;
+  width: 1px;
+  background: var(--line-strong);
+}
+.rm-item {
+  display: grid;
+  grid-template-columns: 42px 1fr;
+  gap: 20px;
+  padding: 28px 0;
+  border-bottom: 1px solid var(--line);
+  position: relative;
+}
+.rm-item:last-child { border-bottom: 0; }
+.rm-dot {
+  display: flex;
+  justify-content: center;
+  padding-top: 5px;
+  position: relative;
+  z-index: 1;
+}
+.rm-dot span {
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  display: block;
+  flex-shrink: 0;
+  background: var(--paper);
+}
+.rm-shipped  .rm-dot span { background: var(--forest); }
+.rm-current  .rm-dot span { background: var(--persimmon); box-shadow: 0 0 0 4px rgba(200,85,61,0.18); }
+.rm-planned  .rm-dot span { background: var(--paper); border: 2px solid var(--ink-4); }
+.rm-later    .rm-dot span { background: var(--paper); border: 2px dashed var(--ink-4); }
+
+.rm-meta {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.rm-status {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 500;
+  padding: 3px 8px;
+  border-radius: 999px;
+}
+.rm-shipped .rm-status { background: var(--forest-soft); color: var(--forest); }
+.rm-current .rm-status { background: var(--persimmon-soft); color: var(--persimmon); }
+.rm-planned .rm-status { color: var(--ink-3); border: 1px solid var(--line-strong); }
+.rm-later   .rm-status { color: var(--ink-4); border: 1px solid var(--line); }
+
+.rm-version {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--ink-4);
+  text-transform: uppercase;
+}
+.rm-title {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--ink);
+  margin: 0 0 8px;
+  line-height: 1.2;
+}
+.rm-planned .rm-title,
+.rm-later   .rm-title { color: var(--ink-2); }
+
+.rm-desc {
+  font-size: 15px;
+  color: var(--ink-2);
+  margin: 0 0 14px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+.rm-planned .rm-desc,
+.rm-later   .rm-desc { color: var(--ink-3); }
+
+.rm-list {
+  list-style: none;
+  padding: 0; margin: 0;
+  display: grid; gap: 6px;
+}
+.rm-list li {
+  font-size: 13.5px;
+  color: var(--ink-3);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.5;
+}
+.rm-list li::before {
+  content: '↳';
+  position: absolute; left: 0;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--ink-4);
+  top: 1px;
+}
+.rm-later .rm-list li { color: var(--ink-4); }
+
+.rm-section-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  margin: 48px 0 16px;
+  display: flex; align-items: center; gap: 14px;
+}
+.rm-section-label::after {
+  content: '';
+  flex: 1; height: 1px;
+  background: var(--line);
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="/" aria-label="Bento — home">
+      <img class="brand-wordmark" src="logo-wordmark.svg" alt="Bento" />
+    </a>
+    <div class="nav-links">
+      <a href="/#how">How it works</a>
+      <a href="/#types">What you save</a>
+      <a href="/#pricing">Pricing</a>
+      <a href="/#faq">FAQ</a>
+      <a class="btn btn-primary" href="https://apps.apple.com/us/app/bento-save-anything/id6770398950" target="_blank" rel="noopener">Get the app</a>
+    </div>
+  </div>
+</nav>
+
+<article class="article">
+  <div class="wrap-narrow">
+    <div class="eyebrow"><span class="num">bento</span> &nbsp;·&nbsp; what's been built and what's next</div>
+    <h1>Road<em>map</em></h1>
+    <div class="updated">Updated · 5 June 2026</div>
+
+    <div class="callout">
+      <p><strong>The direction.</strong> Bento v1 already saves many kinds of things. The next phase makes boxes more useful after you've saved into them — better organised, more purposeful, and smarter about what's inside. The tagline for this work: <em>Turn saved things into useful boxes.</em></p>
+    </div>
+
+    <!-- ── Shipped ── -->
+    <div class="rm-section-label">Shipped</div>
+    <div class="rm-track">
+
+      <div class="rm-item rm-shipped">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Shipped</span>
+            <span class="rm-version">v1.0</span>
+          </div>
+          <h3 class="rm-title">Save Anything Foundation</h3>
+          <p class="rm-desc">Bento launched as a private save-anything library for links, screenshots, notes, files, places, recipes, and more.</p>
+          <ul class="rm-list">
+            <li>Native iOS app, share extension, in-app capture</li>
+            <li>Local-first storage — nothing leaves your phone by default</li>
+            <li>Full-text search with on-device OCR for screenshots and images</li>
+            <li>Boxes, tags, inbox, hidden and locked content</li>
+            <li>Export and import for portability</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-item rm-shipped">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Shipped</span>
+            <span class="rm-version">v1.1</span>
+          </div>
+          <h3 class="rm-title">Apple-First Power Features</h3>
+          <p class="rm-desc">Bento added richer item types, free iCloud sync, shared boxes, recipes, places, scans, voice memos, smart boxes, and duplicate detection.</p>
+          <ul class="rm-list">
+            <li>Recipes, places, document scanning, voice memos with auto-transcripts</li>
+            <li>Article reader mode with stored text and highlights</li>
+            <li>Smart boxes and bulk organisation</li>
+            <li>Free iCloud sync across your Apple devices</li>
+            <li>CloudKit shared boxes with invites, comments, reactions, and activity</li>
+            <li>Bento Pro via the App Store</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-item rm-current">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Current</span>
+            <span class="rm-version">v1.2</span>
+          </div>
+          <h3 class="rm-title">Time-Sensitive Saves</h3>
+          <p class="rm-desc">Bento v1.2 added screenshot reminders so saved tickets, reservations, deadlines, and coupons resurface when they matter.</p>
+          <ul class="rm-list">
+            <li>Screenshot reminders with on-device OCR-based suggestions</li>
+            <li>Reminder chips in Home and a Reminders filter</li>
+            <li>Improved recipe cards</li>
+            <li>Clearer iCloud sync status, retry, and recovery</li>
+            <li>Stability and accessibility hardening</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Coming up ── -->
+    <div class="rm-section-label">Coming up</div>
+    <div class="rm-track">
+
+      <div class="rm-item rm-planned">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Planned</span>
+            <span class="rm-version">v1.3</span>
+          </div>
+          <h3 class="rm-title">Box Focus</h3>
+          <p class="rm-desc">Make every box feel like a proper, purposeful collection. Saved things get more useful the moment they land.</p>
+          <ul class="rm-list">
+            <li>Pin important items inside any box</li>
+            <li>Auto-grouped sections by type — places, links, notes, documents, recipes</li>
+            <li>Smarter, more informative box header</li>
+            <li>Box templates: Standard, Trip, Recipe Collection, Project, Gift List, Research</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-item rm-planned">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Planned</span>
+            <span class="rm-version">v1.4</span>
+          </div>
+          <h3 class="rm-title">Destination Boxes</h3>
+          <p class="rm-desc">Trip and travel boxes get their own feel — intentionally different from a standard box, without becoming a separate travel app.</p>
+          <ul class="rm-list">
+            <li>Destination name and optional date range on trip boxes</li>
+            <li>Map mode for boxes with saved places</li>
+            <li>Place-aware sections: Places, Reservations, Documents, Notes, Photos</li>
+            <li>Shared trip box polish</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-item rm-planned">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Planned</span>
+            <span class="rm-version">v1.5</span>
+          </div>
+          <h3 class="rm-title">Intelligent Boxes</h3>
+          <p class="rm-desc">Bento starts suggesting where things belong — reducing manual organisation while keeping everything explainable and optional.</p>
+          <ul class="rm-list">
+            <li>Suggested boxes during save, based on type, source, and existing contents</li>
+            <li>Suggested tags from item metadata and source text</li>
+            <li>Lightweight item roles for purpose-built boxes</li>
+            <li>Smarter search within box context</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="rm-item rm-planned">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Planned</span>
+            <span class="rm-version">v1.6</span>
+          </div>
+          <h3 class="rm-title">Annotation &amp; Archive</h3>
+          <p class="rm-desc">Make saved content more durable and markable — without turning Bento into a heavy reading app.</p>
+          <ul class="rm-list">
+            <li>Article snapshot reliability — visible status, retry, honest fallback</li>
+            <li>Universal annotation model for articles, PDFs, images, and transcripts</li>
+            <li>First annotation surface: PDF pages or source-text highlights</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Further out ── -->
+    <div class="rm-section-label">Further out</div>
+    <div class="rm-track">
+
+      <div class="rm-item rm-later">
+        <div class="rm-dot"><span></span></div>
+        <div class="rm-body">
+          <div class="rm-meta">
+            <span class="rm-status">Later</span>
+            <span class="rm-version">v1.x</span>
+          </div>
+          <h3 class="rm-title">Platform &amp; Deeper Collaboration</h3>
+          <p class="rm-desc">Expanding Bento beyond iPhone — after the core iOS experience is proven and stable.</p>
+          <ul class="rm-list">
+            <li>Safari extension and Mac capture</li>
+            <li>Web app and browser extension</li>
+            <li>Deeper shared box controls and notification settings</li>
+            <li>Cross-platform foundation</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    <hr />
+    <p style="font-family: var(--font-mono); font-size: 12px; color: var(--ink-3); letter-spacing: 0.06em;">
+      ← <a href="/" style="border:none;">back to usebento.io</a>
+    </p>
+  </div>
+</article>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a class="brand" href="/" aria-label="Bento — home">
+          <img class="brand-wordmark" src="logo-wordmark.svg" alt="Bento" />
+        </a>
+        <p>A private save-and-find app for everything that almost gets lost. Made with care for iPhone.</p>
+      </div>
+      <div class="foot-col">
+        <h4>Product</h4>
+        <ul>
+          <li><a href="/#how">How it works</a></li>
+          <li><a href="/#types">What you save</a></li>
+          <li><a href="/#pricing">Pricing</a></li>
+          <li><a href="/#faq">FAQ</a></li>
+          <li><a href="roadmap.html">Roadmap</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="mailto:hello@usebento.io">Contact</a></li>
+          <li><a href="mailto:press@usebento.io">Press</a></li>
+        </ul>
+      </div>
+      <div class="foot-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-base">
+      <span>© 2026 Bento — usebento.io</span>
+      <span>Made by thirdly</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
