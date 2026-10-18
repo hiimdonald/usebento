@@ -12,7 +12,27 @@
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://usebento.io/" />
 <meta property="og:image" content="https://usebento.io/assets/og.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
+<link rel="canonical" href="https://usebento.io/" />
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Bento",
+  "operatingSystem": "iOS",
+  "applicationCategory": "UtilitiesApplication",
+  "description": "A private, local-first library app for iPhone. Recipes, links, screenshots, voice notes, and PDFs, kept in one searchable box on your device. No account required.",
+  "url": "https://usebento.io/",
+  "installUrl": "https://apps.apple.com/us/app/bento-save-anything/id6770398950",
+  "offers": [
+    { "@type": "Offer", "price": "0", "priceCurrency": "USD", "description": "Free: up to 200 items, 20 boxes, 1 shared box, iCloud sync" },
+    { "@type": "Offer", "price": "4.99", "priceCurrency": "USD", "description": "Bento Pro, annual" },
+    { "@type": "Offer", "price": "19.99", "priceCurrency": "USD", "description": "Bento Pro Lifetime, one-time" }
+  ]
+}
+</script>
 
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
 <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
@@ -72,7 +92,7 @@
 
     <!-- Real app screenshot -->
     <div class="phone-shell">
-      <img class="phone-shot" src="screenshot-hero.png" alt="Bento inbox showing a grid of saved items: Instagram reels, PDFs, voicemails, and screenshots" />
+      <img class="phone-shot" src="assets/screenshot-hero.jpg" width="840" height="1827" fetchpriority="high" alt="Bento inbox showing a grid of saved items: Instagram reels, PDFs, voicemails, and screenshots" />
     </div>
   </div>
 </header>
@@ -237,7 +257,8 @@
         <div>↳ every tag, every note</div>
         <div>↳ the entire search index</div>
         <div class="com" style="margin-top: 14px;"># what leaves your phone</div>
-        <div class="nope">↳ nothing</div>
+        <div class="nope">↳ nothing, unless you turn on iCloud sync</div>
+        <div class="com"># and then it goes to your iCloud, not us</div>
       </div>
     </div>
   </div>
@@ -342,7 +363,7 @@
 
 <!-- ─────────  Big CTA  ───────── -->
 <section id="download" class="cta">
-  <img class="cta-tray" src="llamabentov2.png" alt="" aria-hidden="true" />
+  <img class="cta-tray" src="assets/llamabento-400.png" width="400" height="400" loading="lazy" alt="" aria-hidden="true" />
   <div class="eyebrow" style="display:inline-block; margin-bottom: 18px;"><span class="num">available now</span> &nbsp;·&nbsp; free on the app store</div>
   <h2>One library.<br><em>Everything in its box.</em></h2>
   <p>Download free on iPhone. Upgrade to Bento Pro when you're ready.</p>
