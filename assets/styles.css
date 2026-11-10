@@ -275,6 +275,7 @@ em.serif {
 .phone-shell:hover { transform: rotate(0deg); }
 .phone-shot {
   width: 100%;
+  height: auto;
   border-radius: 46px;
   display: block;
 }
